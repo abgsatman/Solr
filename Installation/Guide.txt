@@ -1,0 +1,30 @@
+## solr installition for centos/amazon linux
+## version 8.4.1
+sudo su
+cd /tmp
+yum install java
+wget https://archive.apache.org/dist/lucene/solr/8.4.1/solr-8.4.1.tgz
+tar xzf solr-8.4.1.tgz solr-8.4.1/bin/install_solr_service.sh --strip-components=2
+bash ./install_solr_service.sh solr-8.4.1.tgz
+systemctl stop solr
+systemctl start solr 
+systemctl status solr 
+
+## create a new core with required files
+sudo su - solr -c "/opt/solr/bin/solr create -c core_ismi -n data_driven_schema_configs"
+
+## delete a core as permanently
+/opt/solr/bin/solr delete -c core_ismi
+
+## solr path
+/opt/solr/bin/solr
+
+## solr deep config settings
+cd /etc/default
+cat solr.in.sh
+
+## solr core folders
+/var/solr/data
+
+## solr libraries path
+/opt/solr-8.4.1/server/solr-webapp/webapp/WEB-INF/lib/
