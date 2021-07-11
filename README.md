@@ -1,2 +1,3 @@
 # Solr
-Solr Kütüphanesi
+## Solr Kütüphanesi
+- ### Installation Guide
